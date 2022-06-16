@@ -70,4 +70,11 @@ class LocationTest {
                 .clickOnCreateLocationButton();
     }
 
+    @Test
+    void testEdit(){
+        var fixture = new LocationDatabaseFixture();
+        fixture.deleteLocations();
+        fixture.createLocation("create-in-db","0","0");
+
+    }
 }
