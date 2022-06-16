@@ -89,5 +89,29 @@ class WebsiteTest {
 
     }
 
+    WebsitePageObject page;
+    @BeforeEach
+    void initPage(WebDriver driver){
+        page= new WebsitePageObject(driver);
+    }
+
+    @Test
+    void testSearchByPageObject(){
+        page.go()
+                .fillSearchField("testing")
+                .clickOnSubmit();
+        assertEquals("Results",page.getResultForSearch());
+
+    }
+
+    @Test
+    void testnavigateToPSF(){
+        page.go().
+                clickPSFMenu();
+        assertEquals("Python Software Foundation",page.getResultForFindPage());
+
+    }
+
+
 
 }
